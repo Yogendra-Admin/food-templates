@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> Nepali Restaurant</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;color:#333}
+ 
+.btn{display:inline-block;padding:10px 24px;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none}
+.btn-outline{background:transparent;border:1.5px solid #fff;color:#fff}
+.btn-gold{background:transparent;border:1.5px solid #c97d2e;color:#c97d2e}
+.btn-fill{background:#c97d2e;color:#fff}
+.btn-red{background:#e8442a;color:#fff}
+.sec{padding:70px 80px}
+.sec-title{font-size:30px;font-weight:800;text-transform:uppercase;letter-spacing:2px;text-align:center;margin-bottom:12px}
+.sec-sub{font-size:13px;color:#888;text-align:center;max-width:560px;margin:0 auto 40px;line-height:1.6}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;z-index:10}
+.logo{color:#fff;font-size:20px;font-weight:700}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.5px}
+
+/* HERO */
+.hero{position:relative;height:600px;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('1.jpg')center/cover;display:flex;align-items:center;justify-content:flex-end;padding:0 80px}
+.hero-box{background:rgba(232,68,42,.88);padding:40px 36px;max-width:400px;border:2px solid rgba(255,255,255,.35)}
+.hero-box h1{color:#fff;font-size:48px;font-weight:900;line-height:1.1;margin-bottom:14px}
+.hero-box p{color:rgba(255,255,255,.9);font-size:13px;line-height:1.6;margin-bottom:22px}
+.dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5)}
+.dots span.on{background:#fff}
+
+/* ABOUT */
+.about{display:flex;align-items:center;gap:60px}
+.imgs{position:relative;flex:0 0 340px;height:290px}
+.imgs img{position:absolute;object-fit:cover}
+.imgs .i1{top:0;left:0;width:200px;height:200px}
+.imgs .i2{top:55px;left:178px;width:160px;height:135px}
+.imgs .i3{top:175px;left:178px;width:160px;height:115px}
+.about-txt h2{font-size:24px;font-weight:700;margin-bottom:14px}
+.about-txt .hi{color:#c97d2e;font-size:13px;line-height:1.6;margin-bottom:14px}
+.about-txt p{font-size:13px;color:#666;line-height:1.7;margin-bottom:22px}
+ 
+
+/* CATEGORIES */
+.cats{background:#f9f9f9;padding:55px 80px}
+.cats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:860px;margin:0 auto;text-align:center}
+.cat .icon{font-size:38px;margin-bottom:10px}
+.cat h4{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#555;margin-bottom:7px}
+.cat p{font-size:12px;color:#999;line-height:1.5}
+ 
+/* SPECIALTY */
+.spec{display:flex;height:420px}
+.spec-l{flex:0 0 420px;background:#faf8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:55px 44px;text-align:center}
+.spec-l .tag{font-size:13px;color:#888;margin-top:14px;margin-bottom:10px}
+.spec-l h2{font-size:30px;font-weight:900;text-transform:uppercase;margin-bottom:18px;line-height:1.2}
+.spec-l p{font-size:13px;color:#888;line-height:1.7;margin-bottom:26px}
+.spec-r{flex:1;background:url('2.jpg')center/cover}
+ 
+/* MENU */
+.menu-tabs{display:flex;justify-content:center;gap:36px;margin-bottom:44px;border-bottom:1px solid #eee;padding-bottom:18px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;opacity:.45}
+.tab.on{opacity:1}
+.tab .ti{font-size:26px}
+.tab span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#555}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:28px 56px;max-width:840px;margin:0 auto;text-align:left}
+.item{border-bottom:1px dashed #eee;padding-bottom:18px}
+.item-h{display:flex;justify-content:space-between;margin-bottom:6px}
+.item-h h4{font-size:14px;font-weight:600}
+.item p{font-size:12px;color:#999;line-height:1.5}
+
+
+/* GALLERY */
+.gallery{padding:60px 0;text-align:center}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,200px)}
+.g-grid img{width:100%;height:100%;object-fit:cover;display:block}
+.g-grid .tall{grid-row:span 2}
+ 
+/* CHEF */
+.chef-card{display:flex;max-width:680px;margin:0 auto;background:#faf8f0;overflow:hidden}
+.chef-l{padding:46px 36px;flex:1;text-align:left}
+.chef-l h3{font-size:20px;font-weight:700;margin-bottom:4px}
+.chef-l .role{font-size:13px;color:#888;margin-bottom:18px}
+.chef-l p{font-size:13px;color:#666;line-height:1.7;margin-bottom:12px}
+.sig{font-family:cursive;color:#c97d2e;font-size:22px;margin-top:20px}
+.chef-r{flex:0 0 280px;background:url('chef.jpg')center top/cover}
+
+/* CTA */
+.cta{background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('3.jpg')center/cover;padding:76px 40px;text-align:center}
+.cta h2{color:#fff;font-size:28px;font-weight:400;margin-bottom:28px}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left}
+.blog-card img{width:100%;height:195px;object-fit:cover;margin-bottom:14px}
+.blog-card h4{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.blog-card p{font-size:12px;color:#999;line-height:1.6}
+
+/* TESTIMONIAL */
+.testim{display:flex}
+.testim-l{flex:0 0 80px;background:url('4.jpg')center/cover}
+.testim-m{flex:1;background:#faf8f0;padding:56px 46px}
+.testim-m h2{font-size:26px;font-weight:700;margin-bottom:14px;line-height:1.3}
+.testim-m .tg{font-size:13px;color:#555;margin-bottom:18px}
+.testim-m p{font-size:13px;color:#888;line-height:1.7;margin-bottom:26px}
+.testim-r{flex:0 0 480px;background:url('yg.jpg')center/cover}
+
+/* CONTACT */
+.cinfo{padding:44px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.ci .icon{font-size:26px;color:#c97d2e;margin-bottom:10px}
+.ci h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.ci p{font-size:12px;color:#888;line-height:1.5}
+
+
+/* BOOKING */
+.book{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('5.jpg')center/cover;padding:76px 40px;text-align:center}
+.book h2{color:#fff;font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.book p{color:rgba(255,255,255,.8);font-size:13px;margin-bottom:28px}
+.book-form{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto}
+.book-form input,.book-form textarea{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;padding:12px 15px;font-size:13px;outline:none;font-family:inherit}
+.book-form input::placeholder,.book-form textarea::placeholder{color:rgba(255,255,255,.6)}
+.book-form textarea{height:95px;resize:vertical}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid #eee;padding:22px 80px;display:flex;align-items:center;justify-content:space-between}
+footer .fl{font-size:20px;font-weight:700}
+.flinks{display:flex;gap:18px}
+.flinks a{font-size:12px;color:#888;text-decoration:none}
+footer p{font-size:12px;color:#bbb}
+.socials{display:flex;gap:12px}
+.socials a{color:#aaa;text-decoration:none;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="logo-white.png" alt="LeadGen Logo">
+  <ul>
+    <li><a href="#">About</a></li><li><a href="#">Services</a></li>
+    <li><a href="#">Menu</a></li><li><a href="#">Gallery</a></li>
+    <li><a href="#">Chefs</a></li><li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>Delicious Breakfast</h1>
+    <p>Lorem Ipsum is simply dummy text of the printing and industry. Lorem Ipsum the industry's dummy text.</p>
+    <button class="btn btn-outline">Discover Menu</button>
+  </div>
+  <div class="dots"><span class="on"></span><span></span><span></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec about">
+  <div class="imgs">
+    <img class="i1" src="content-50.jpg" />
+    
+  </div>
+  <div class="about-txt">
+    <h2>The best food in town at one of the best locations!!!</h2>
+    <p class="hi">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.</p>
+    <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled it to make a type specimen book.</p>
+    <button class="btn btn-gold">Explore Menu →</button>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cats">
+  <div class="cats-grid">
+
+    <div class="cat">
+      <div class="icon">
+        <img src="breakfast.png" alt="Breakfast">
+      </div>
+      <h4>Breakfast</h4>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+
+    <div class="cat">
+      <div class="icon">
+        <img src="lunch.png" alt="Lunch">
+      </div>
+      <h4>Lunch</h4>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+
+    <div class="cat">
+      <div class="icon">
+        <img src="dinner.png" alt="Dinner">
+      </div>
+      <h4>Dinner</h4>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+
+    <div class="cat">
+      <div class="icon">
+        <img src="drinks.png" alt="Drinks">
+      </div>
+      <h4>Drinks</h4>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+
+  </div>
+</section>
+<!-- MENU -->
+<section class="sec" style="text-align:center">
+  <h2 class="sec-title">Main Menu</h2>
+  <p class="sec-sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+  
+  <div class="menu-tabs">
+    <div class="tab on">
+      <span class="ti"><img src="icon2.png" width="30"></span>
+      <span>Starters</span>
+    </div>
+
+    <div class="tab">
+      <span class="ti"><img src="icon1.png" width="30"></span>
+      <span>Meat</span>
+    </div>
+
+    <div class="tab">
+      <span class="ti"><img src="icon2.png" width="30"></span>
+      <span>Fish</span>
+    </div>
+
+    <div class="tab">
+      <span class="ti"><img src="icon3.png" width="30"></span>
+      <span>Vegetarian</span>
+    </div>
+
+    <div class="tab">
+      <span class="ti"><img src="icon4.png" width="30"></span>
+      <span>Dessert</span>
+    </div>
+
+    <div class="tab">
+      <span class="ti"><img src="icon5.png" width="30"></span>
+      <span>Drinks</span>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item"><div class="item-h"><h4>Green Salad</h4><span>$12.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+    <div class="item"><div class="item-h"><h4>Appeteaser Platter</h4><span>$23.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+    <div class="item"><div class="item-h"><h4>Eggs Any Style</h4><span>$23.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+    <div class="item"><div class="item-h"><h4>Spicy Mixed Olives</h4><span>$53.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+    <div class="item"><div class="item-h"><h4>Chicken Wings</h4><span>$45.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+    <div class="item"><div class="item-h"><h4>Wing Roulette</h4><span>$25.00</span></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Standard text.</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <h2 class="sec-title">Food Gallery</h2>
+  <p class="sec-sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+  <div class="g-grid">
+    <img class="tall" src="dd.jpg" alt="g1" />
+    <img src= "bb.jpg" alt="g2" />
+    <img src="cc.jpg" alt="g3" />
+    <img class="tall" src="ee.jpg" alt="g4" />
+    <img src="aa.jpg" alt="g5" />
+    <img src="2.jpg" alt="g6" />
+    
+  </div>
+</section>
+
+<!-- CHEF -->
+<section class="sec" style="text-align:center">
+  <h2 class="sec-title">Meet Our Chef</h2>
+  <p class="sec-sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+  <div class="chef-card">
+    <div class="chef-l">
+      <h3>Jeremy Dupont</h3>
+      <p class="role">Executive Chef</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1500s.</p>
+      <div class="sig">Gustave Beron</div>
+    </div>
+    <div class="chef-r"></div>
+  </div>
+</section>
+<!-- CTA -->
+<section class="cta">
+  <h2>Amazing restaurant come and experience inspired cooking!</h2>
+  <button class="btn btn-fill">Book a Table</button>
+</section>
+
+<!-- BLOG -->
+<section class="sec" style="text-align:center">
+  <h2 class="sec-title">Our Blog</h2>
+  <p class="sec-sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+  <div class="blog-grid">
+    <div class="blog-card"><img src="sss.jpg" alt="b1" /><h4>Warm Hummus with Spiced Lamb</h4><p>Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it.</p></div>
+    <div class="blog-card"><img src="ttt.jpg" alt="b2" /><h4>Scratch Made Moscow Mules</h4><p>Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it.</p></div>
+    <div class="blog-card"><img src="uuu.jpg" alt="b3" /><h4>Crumb Topped Apple Slab Pie</h4><p>Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it.</p></div>
+  </div>
+</section>
+<!-- TESTIMONIAL -->
+<section class="testim">
+  <div class="testim-l"></div>
+  <div class="testim-m">
+    <h2>Enjoyed the meal &amp; friendly service!</h2>
+    <p class="tg">We offer a wide variety of trainings to achieve the best results.</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled it.</p>
+    <button class="btn btn-fill">Book a Table</button>
+  </div>
+  <div class="testim-r"></div>
+</section>
+
+<!-- CONTACT INFO -->
+<div class="cinfo">
+  <div class="ci"><div class="icon">📍</div><h4>Contact Address</h4><p>301 The Greenhouse, Custard,<br>Factory, London, E2 8DY.</p></div>
+  <div class="ci"><div class="icon">📞</div><h4>Call Us Today!</h4><p>(M) +44 (0) 123 456 7890<br>(O) +44 (0) 123 456 7890</p></div>
+  <div class="ci"><div class="icon">✉️</div><h4>Email</h4><p>no-reply@domain.com<br>help@domain.com</p></div>
+  <div class="ci"><div class="icon">🕐</div><h4>Opening Hour</h4><p>Mon to Sat – 9 AM to 11 PM<br>Sunday 8 AM to 12 PM</p></div>
+</div>
+<!-- BOOKING -->
+<section class="book">
+  <h2>Book a Table</h2>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+  <div class="book-form">
+    <input type="text" placeholder="*Your Name" />
+    <input type="email" placeholder="*Your Email" />
+    <textarea placeholder="Your Message"></textarea>
+    <button class="btn btn-fill" style="padding:13px">Book Table</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">🍽 LeadGen</div>
+  <div class="flinks">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms and Conditions</a>
+    <a href="#">Legal</a>
+  </div>
+  <p>© 2016 LeadGen is proudly powered by ThemeZaa.</p>
+  <div class="socials">
+    <a href="#">f</a><a href="#">t</a><a href="#">g+</a><a href="#">in</a><a href="#">yt</a>
+  </div>
+</footer>
+
+</body>
+</html>
